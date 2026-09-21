@@ -1,0 +1,11 @@
+/* App specific styles */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent text selection during navigation */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
