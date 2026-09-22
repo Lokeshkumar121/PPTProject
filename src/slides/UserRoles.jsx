@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Crown, Shield, User, Store } from 'lucide-react';
@@ -10,15 +11,14 @@ const UserRoles = () => {
       title: 'Super Admin',
       desc: 'Entire platform manage karega',
       permissions: ['Communities manage', 'Admin management', 'Platform monitoring', 'Reports & Analytics'],
-      color: 'from-red-500 to-orange-500',
       level: 'Level 1',
     },
+    
     {
       icon: Shield,
       title: 'Community Admin',
       desc: 'Specific area manage karega',
       permissions: ['Announcements', 'Problems', 'Projects', 'Events', 'Moderation'],
-      color: 'from-purple-500 to-pink-500',
       level: 'Level 2',
     },
     {
@@ -26,7 +26,6 @@ const UserRoles = () => {
       title: 'Resident / Member',
       desc: 'Normal community user',
       permissions: ['Posts create', 'Problems report', 'Comments', 'Likes', 'Events view'],
-      color: 'from-blue-500 to-cyan-500',
       level: 'Level 3',
     },
     {
@@ -34,13 +33,12 @@ const UserRoles = () => {
       title: 'Business User',
       desc: 'Future role',
       permissions: ['Business profile', 'Services', 'Contact info', 'Offers', 'Local visibility'],
-      color: 'from-green-500 to-emerald-500',
       level: 'Future',
     },
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center px-16 py-20">
+    <div className="w-full h-full flex items-center justify-center px-16 py-20 bg-slate-50">
       <div className="max-w-7xl w-full">
         <SlideHeading icon={User}>User Roles</SlideHeading>
 
@@ -52,30 +50,53 @@ const UserRoles = () => {
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               whileHover={{ scale: 1.05, y: -10 }}
-              className="glass rounded-2xl p-6 cursor-pointer relative overflow-hidden"
+              className="
+                bg-white
+                border
+                border-slate-200
+                rounded-2xl
+                p-6
+                cursor-pointer
+                relative
+                overflow-hidden
+                shadow-sm
+                hover:border-blue-200
+                hover:shadow-md
+                transition-all
+              "
             >
-              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${role.color}`} />
-              
-              <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${role.color} mb-4`}>
-                <role.icon className="w-8 h-8 text-white" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
+
+              <div className="inline-flex p-3 rounded-xl bg-blue-50 border border-blue-100 mb-4">
+                <role.icon className="w-8 h-8 text-blue-600" />
               </div>
-              
-              <div className="text-xs text-primary font-bold mb-2 font-body">
+
+              <div className="text-xs text-blue-600 font-bold mb-2 font-body">
                 {role.level}
               </div>
-              
-              <h3 className="text-white font-heading font-bold text-xl mb-2">
+
+              <h3 className="text-slate-900 font-heading font-bold text-xl mb-2">
                 {role.title}
               </h3>
-              
-              <p className="text-white/60 text-sm font-body mb-4">
+
+              <p className="text-slate-500 text-sm font-body mb-4">
                 {role.desc}
               </p>
-              
+
               <ul className="space-y-2">
                 {role.permissions.map((perm, i) => (
-                  <li key={i} className="text-white/80 text-xs font-body flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <li
+                    key={i}
+                    className="
+                      text-slate-600
+                      text-xs
+                      font-body
+                      flex
+                      items-center
+                      gap-2
+                    "
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
                     {perm}
                   </li>
                 ))}

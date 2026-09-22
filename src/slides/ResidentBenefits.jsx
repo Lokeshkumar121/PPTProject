@@ -1,3 +1,4 @@
+
 // src/slides/ResidentBenefits.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -18,9 +19,12 @@ const ResidentBenefits = () => {
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center px-16 py-20">
+    <div className="w-full h-full flex items-center justify-center px-16 py-20 bg-slate-50">
       <div className="max-w-5xl w-full">
-        <SlideHeading icon={Users}>Benefits for Residents</SlideHeading>
+        <SlideHeading icon={Users}>
+          Benefits for Residents
+        </SlideHeading>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {benefits.map((benefit, i) => (
             <motion.div
@@ -29,9 +33,22 @@ const ResidentBenefits = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="glass rounded-2xl p-5 cursor-pointer hover:border-primary/50 transition-all"
+              className="
+                bg-white
+                border
+                border-slate-200
+                rounded-2xl
+                p-5
+                cursor-pointer
+                shadow-sm
+                hover:border-blue-200
+                hover:shadow-md
+                transition-all
+              "
             >
-              <p className="text-white/90 font-body text-sm">{benefit}</p>
+              <p className="text-slate-700 font-body text-sm">
+                {benefit}
+              </p>
             </motion.div>
           ))}
         </div>

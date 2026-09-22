@@ -1,3 +1,4 @@
+
 // src/slides/Achievements.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -14,12 +15,19 @@ const Achievements = () => {
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center px-16 py-20">
+    <div className="w-full h-full flex items-center justify-center px-16 py-20 bg-slate-50">
       <div className="max-w-4xl w-full">
-        <SlideHeading icon={Trophy}>Community Achievements</SlideHeading>
-        <p className="text-center text-white/70 mb-6 font-body">
-          Sirf problems nahi, <span className="text-success font-bold">positive progress bhi visible hogi</span>
+        <SlideHeading icon={Trophy}>
+          Community Achievements
+        </SlideHeading>
+
+        <p className="text-center text-slate-500 mb-6 font-body">
+          Sirf problems nahi,{' '}
+          <span className="text-blue-600 font-bold">
+            positive progress bhi visible hogi
+          </span>
         </p>
+
         <div className="space-y-4">
           {achievements.map((ach, i) => (
             <motion.div
@@ -28,14 +36,40 @@ const Achievements = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.12 }}
               whileHover={{ scale: 1.02, x: 10 }}
-              className="glass rounded-2xl p-5 border-l-4 border-success flex items-center gap-4"
+              className="
+                bg-white
+                border
+                border-slate-200
+                border-l-4
+                border-l-blue-500
+                rounded-2xl
+                p-5
+                flex
+                items-center
+                gap-4
+                shadow-sm
+                hover:shadow-md
+                hover:border-blue-200
+                transition-all
+              "
             >
-              <span className="text-3xl">{ach.emoji}</span>
+              <span className="text-3xl">
+                {ach.emoji}
+              </span>
+
               <div>
-                <h4 className="text-white font-heading font-bold">{ach.title}</h4>
-                <p className="text-white/70 text-sm font-body">{ach.desc}</p>
+                <h4 className="text-slate-900 font-heading font-bold">
+                  {ach.title}
+                </h4>
+
+                <p className="text-slate-500 text-sm font-body">
+                  {ach.desc}
+                </p>
               </div>
-              <span className="ml-auto text-success text-xs font-bold">🎉</span>
+
+              <span className="ml-auto text-blue-600 text-xs font-bold">
+                🎉
+              </span>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Users, MapPin, MessageCircle, TrendingUp, CheckCircle } from 'lucide-react';
+import {
+  Globe,
+  Users,
+  MapPin,
+  MessageCircle,
+  TrendingUp,
+  CheckCircle
+} from 'lucide-react';
 
 const TitleSlide = () => {
   const features = [
@@ -12,30 +19,32 @@ const TitleSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center px-16 relative">
-      {/* Floating Background Icons */}
+    <div className="w-full h-full flex flex-col items-center justify-center px-16 relative bg-slate-50 overflow-hidden">
+
+      {/* Soft Background Decoration */}
+
       <motion.div
         animate={{ y: [0, -30, 0], rotate: [0, 10, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
-        className="absolute top-20 left-32 opacity-10"
+        className="absolute top-20 left-32 opacity-[0.06]"
       >
-        <Users className="w-32 h-32 text-primary" />
+        <Users className="w-32 h-32 text-blue-600" />
       </motion.div>
-      
+
       <motion.div
         animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }}
         transition={{ duration: 7, repeat: Infinity }}
-        className="absolute bottom-32 right-40 opacity-10"
+        className="absolute bottom-32 right-40 opacity-[0.06]"
       >
-        <MapPin className="w-40 h-40 text-secondary" />
+        <MapPin className="w-40 h-40 text-blue-500" />
       </motion.div>
 
       <motion.div
         animate={{ y: [0, -20, 0] }}
         transition={{ duration: 5, repeat: Infinity }}
-        className="absolute top-40 right-32 opacity-10"
+        className="absolute top-40 right-32 opacity-[0.06]"
       >
-        <MessageCircle className="w-28 h-28 text-accent" />
+        <MessageCircle className="w-28 h-28 text-blue-400" />
       </motion.div>
 
       {/* Main Content */}
@@ -45,36 +54,72 @@ const TitleSlide = () => {
         transition={{ duration: 0.8 }}
         className="text-center z-10"
       >
+
+        {/* Platform Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass mb-8"
+          className="
+            inline-flex
+            items-center
+            gap-3
+            px-6
+            py-3
+            rounded-full
+            bg-white
+            border
+            border-blue-100
+            shadow-sm
+            mb-8
+          "
         >
-          <Globe className="w-5 h-5 text-accent" />
-          <span className="text-white/80 text-sm font-body tracking-wider">
+          <Globe className="w-5 h-5 text-blue-600" />
+
+          <span className="text-blue-700 text-sm font-body font-semibold tracking-wider">
             HYPERLOCAL PLATFORM
           </span>
         </motion.div>
 
+        {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-7xl md:text-8xl font-heading font-extrabold text-white mb-6 leading-tight"
+          className="
+            text-7xl
+            md:text-8xl
+            font-heading
+            font-extrabold
+            text-slate-900
+            mb-6
+            leading-tight
+          "
         >
           Hyperlocal
           <br />
-          <span className="gradient-text">Social & Community</span>
+
+          <span className="gradient-text">
+            Social & Community
+          </span>
+
           <br />
+
           Platform
         </motion.h1>
 
+        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="text-2xl text-white/60 font-body italic mb-12"
+          className="
+            text-2xl
+            text-slate-500
+            font-body
+            italic
+            mb-12
+          "
         >
           "Your Community, Your People, Your Place"
         </motion.p>
@@ -92,25 +137,48 @@ const TitleSlide = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1 + index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="flex items-center gap-2 px-5 py-3 rounded-full glass cursor-pointer"
+              whileHover={{
+                scale: 1.06,
+                y: -5
+              }}
+              className="
+                flex
+                items-center
+                gap-2
+                px-5
+                py-3
+                rounded-full
+                bg-white
+                border
+                border-slate-200
+                shadow-sm
+                hover:border-blue-200
+                hover:shadow-md
+                cursor-pointer
+                transition-all
+              "
             >
-              <feature.icon className="w-5 h-5 text-primary" />
-              <span className="text-white font-body font-medium">{feature.label}</span>
+              <feature.icon className="w-5 h-5 text-blue-600" />
+
+              <span className="text-slate-700 font-body font-medium">
+                {feature.label}
+              </span>
             </motion.div>
           ))}
         </motion.div>
 
+        {/* Navigation Hint */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
           className="mt-16"
         >
-          <p className="text-white/40 text-sm font-body">
-            Use Arrow Keys ← → to Navigate | Press F for Fullscreen
+          <p className="text-slate-400 text-sm font-body">
+            Use Arrow Keys ← → to Navigate&nbsp; | &nbsp;Press F for Fullscreen
           </p>
         </motion.div>
+
       </motion.div>
     </div>
   );

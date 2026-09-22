@@ -1,3 +1,4 @@
+
 // src/slides/EventsSlide.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -17,9 +18,10 @@ const EventsSlide = () => {
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center px-16 py-20">
+    <div className="w-full h-full flex items-center justify-center px-16 py-20 bg-slate-50">
       <div className="max-w-6xl w-full">
         <SlideHeading icon={Calendar}>Events</SlideHeading>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {events.map((event, i) => (
             <motion.div
@@ -28,12 +30,35 @@ const EventsSlide = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: i * 0.08 }}
               whileHover={{ scale: 1.08, y: -8 }}
-              className="glass rounded-2xl p-5 text-center cursor-pointer"
+              className="
+                bg-white
+                border
+                border-slate-200
+                rounded-2xl
+                p-5
+                text-center
+                cursor-pointer
+                shadow-sm
+                hover:border-blue-200
+                hover:shadow-md
+                transition-all
+              "
             >
-              <div className="text-4xl mb-3">{event.emoji}</div>
-              <h4 className="text-white font-heading font-bold text-sm mb-1">{event.title}</h4>
-              <p className="text-white/60 text-xs font-body mb-2">{event.desc}</p>
-              <span className="text-primary text-xs font-bold">{event.date}</span>
+              <div className="text-4xl mb-3">
+                {event.emoji}
+              </div>
+
+              <h4 className="text-slate-900 font-heading font-bold text-sm mb-1">
+                {event.title}
+              </h4>
+
+              <p className="text-slate-500 text-xs font-body mb-2">
+                {event.desc}
+              </p>
+
+              <span className="text-blue-600 text-xs font-bold">
+                {event.date}
+              </span>
             </motion.div>
           ))}
         </div>

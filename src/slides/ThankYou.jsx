@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Mail, Globe, QrCode } from 'lucide-react';
 
 const ThankYou = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center px-16 py-20 relative">
+    <div className="w-full h-full flex items-center justify-center px-16 py-20 relative bg-slate-50 overflow-hidden">
       {/* Floating Hearts */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -25,7 +26,7 @@ const ThankYou = () => {
             top: `${20 + (i % 3) * 20}%`,
           }}
         >
-          <Heart className="w-8 h-8 text-primary/30" />
+          <Heart className="w-8 h-8 text-blue-500/20" />
         </motion.div>
       ))}
 
@@ -47,7 +48,7 @@ const ThankYou = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-7xl md:text-8xl font-heading font-extrabold text-white mb-6"
+          className="text-7xl md:text-8xl font-heading font-extrabold text-slate-900 mb-6"
         >
           Thank <span className="gradient-text">You!</span>
         </motion.h1>
@@ -56,7 +57,7 @@ const ThankYou = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="text-2xl text-white/70 font-body italic mb-12"
+          className="text-2xl text-slate-500 font-body italic mb-12"
         >
           "Your Community, Your People, Your Place"
         </motion.p>
@@ -67,13 +68,18 @@ const ThankYou = () => {
           transition={{ delay: 0.8 }}
           className="flex flex-wrap justify-center gap-6 mb-12"
         >
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full glass">
-            <Mail className="w-5 h-5 text-primary" />
-            <span className="text-white font-body">contact@hyperlocalplatform.com</span>
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 shadow-sm">
+            <Mail className="w-5 h-5 text-blue-600" />
+            <span className="text-slate-700 font-body">
+              contact@hyperlocalplatform.com
+            </span>
           </div>
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full glass">
-            <Globe className="w-5 h-5 text-accent" />
-            <span className="text-white font-body">www.hyperlocalplatform.com</span>
+
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 shadow-sm">
+            <Globe className="w-5 h-5 text-blue-600" />
+            <span className="text-slate-700 font-body">
+              www.hyperlocalplatform.com
+            </span>
           </div>
         </motion.div>
 
@@ -81,10 +87,15 @@ const ThankYou = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1 }}
-          className="inline-flex flex-col items-center gap-3 p-6 rounded-2xl glass"
+          className="inline-flex flex-col items-center gap-3 p-6 rounded-2xl bg-white border border-blue-100 shadow-sm"
         >
-          <QrCode className="w-20 h-20 text-white" />
-          <p className="text-white/60 text-sm font-body">Scan for Demo</p>
+          <div className="p-3 rounded-xl bg-blue-50 border border-blue-100">
+            <QrCode className="w-20 h-20 text-blue-600" />
+          </div>
+
+          <p className="text-slate-500 text-sm font-body">
+            Scan for Demo
+          </p>
         </motion.div>
       </motion.div>
     </div>
